@@ -85,8 +85,6 @@
             color: var(--primary-color); 
         }
 
-
-        /* --- 3. CAPA (HERO) --- */
         .hero-container {
             position: relative;
             width: 100%;
@@ -98,7 +96,6 @@
             background-color: #000;
         }
 
-        /* Imagem de Fundo */
         .imagem-fundo-src {
             position: absolute;
             top: 0;
@@ -107,10 +104,10 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.7; /* Ajuste a transparência da foto (0.1 a 1.0) */
+            opacity: 0.7; 
         }
 
-        /* Filtro Escuro */
+   
         .filtro-escuro {
             position: absolute;
             top: 0;
@@ -121,7 +118,7 @@
             z-index: 2;
         }
 
-        /* Conteúdo (Logo e Texto) */
+ 
         .conteudo-frente {
             position: relative;
             z-index: 3;
@@ -132,8 +129,6 @@
             display: flex;
             flex-direction: column; 
             align-items: center;
-            
-            /* Margem para subir um pouco o conteúdo visualmente */
             margin-bottom: 80px; 
         }
 
@@ -153,7 +148,6 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.6);
         }
 
-        /* Seta (Sem scroll suave) */
         .scroll-down {
             position: absolute;
             bottom: 30px;
@@ -183,7 +177,6 @@
         }
 
 
-        /* --- 4. SEÇÕES GERAIS --- */
         section { padding: 5rem 10%; }
 
         .section-title {
@@ -204,7 +197,6 @@
         }
 
 
-        /* --- 5. HISTÓRIA --- */
         .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -218,8 +210,6 @@
         }
         .about-text p { margin-bottom: 1rem; text-align: justify; }
 
-
-        /* --- 6. PROPÓSITO --- */
         .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -240,7 +230,6 @@
         .value-card h4 { margin: 1rem 0; color: var(--secondary-color); font-size: 1.4rem; }
 
 
-        /* --- 7. NÚCLEOS (PARCEIROS) --- */
         .partners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -295,8 +284,6 @@
         }
         .btn-horarios:hover { background-color: var(--secondary-color); }
 
-
-        /* --- 8. CONTATOS (ATUALIZADO COM TIKTOK E FACEBOOK) --- */
         .contact-links-container {
             display: flex;
             justify-content: center;
@@ -331,8 +318,6 @@
         }
         .contact-btn-social:hover { border-bottom: 1px solid var(--primary-color); }
 
-
-        /* --- 9. WHATSAPP FLUTUANTE --- */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -358,7 +343,6 @@
         }
 
 
-        /* --- 10. FOOTER --- */
         footer {
             background-color: #f8f8f8;
             color: #555; padding: 3rem 10%;
@@ -368,12 +352,10 @@
         .copyright { font-size: 0.8rem; color: #aaa; margin-top: 1rem; }
 
 
-        /* --- RESPONSIVO --- */
         @media (max-width: 768px) {
-            /* Cabeçalho no Mobile */
             header { padding: 0 1rem; }
             .nav-links { 
-                display: none; /* Em produção, substituir por menu hamburguer */
+                display: none;
             }
             
             .hero-container { height: calc(100vh - var(--header-height)); }
@@ -381,7 +363,7 @@
             .logo-principal { width: 80%; }
             
             .about-container { grid-template-columns: 1fr; }
-            .about-image { order: -1; } /* Imagem acima do texto */
+            .about-image { order: -1; } 
             
             section { padding: 4rem 1.5rem; }
             
@@ -561,4 +543,5 @@
     </a>
 
 </body>
+
 </html>

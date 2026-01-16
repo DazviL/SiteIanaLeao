@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iana Leão Ballet | Escola de Dança</title>
+    <link rel="icon" type="image/png" href="LOGOSLA2.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #b2403d;
+            --secondary-color: #4A4B57; 
+            --bg-color: #EAE0C8;
+            --text-color: #4A4B57;
+            --header-height: 90px;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: var(--header-height);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #111;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: #EAE0C8;
+            z-index: 1000;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo-container a { display: block; }
+        
+        .nav-logo-img {
+            height: 55px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #333333;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700; 
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color); 
+        }
+
+
+        /* --- 3. CAPA (HERO) --- */
+        .hero-container {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - var(--header-height)); 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* Imagem de Fundo */
+        .imagem-fundo-src {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.7; /* Ajuste a transparência da foto (0.1 a 1.0) */
+        }
+
+        /* Filtro Escuro */
+        .filtro-escuro {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+            z-index: 2;
+        }
+
+        /* Conteúdo (Logo e Texto) */
+        .conteudo-frente {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #ffffff;
+            max-width: 900px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            
+            /* Margem para subir um pouco o conteúdo visualmente */
+            margin-bottom: 80px; 
+        }
+
+        .logo-principal {
+            width: 500px; 
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5));
+        }
+
+        .conteudo-frente p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+        }
+
+        /* Seta (Sem scroll suave) */
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .scroll-down:hover { opacity: 1; }
+        
+        .arrow {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid #ffffff;
+            border-right: 2px solid #ffffff;
+            transform: rotate(45deg);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+            40% { transform: translateY(-10px) rotate(45deg); }
+            60% { transform: translateY(-5px) rotate(45deg); }
+        }
+
+
+        /* --- 4. SEÇÕES GERAIS --- */
+        section { padding: 5rem 10%; }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #111;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin: 1rem auto;
+        }
+
+
+        /* --- 5. HISTÓRIA --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-image img {
+            width: 50%;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+        }
+        .about-text p { margin-bottom: 1rem; text-align: justify; }
+
+
+        /* --- 6. PROPÓSITO --- */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        .value-card {
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            transition: var(--transition);
+        }
+        .value-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .value-card h4 { margin: 1rem 0; color: var(--secondary-color); font-size: 1.4rem; }
+
+
+        /* --- 7. NÚCLEOS (PARCEIROS) --- */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .partner-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .partner-img-box {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            padding: 10px;
+        }
+        .partner-img-box img { max-height: 100%; max-width: 100%; object-fit: contain; }
+        .partner-name { font-size: 1.1rem; margin-bottom: 1.5rem; color: #444; }
+        
+        .btn-horarios {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: var(--transition);
+            width: 100%;
+            font-weight: bold;
+        }
+        .btn-horarios:hover { background-color: var(--secondary-color); }
+
+
+        /* --- 8. CONTATOS (ATUALIZADO COM TIKTOK E FACEBOOK) --- */
+        .contact-links-container {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            transition: var(--transition);
+            min-width: 150px;
+        }
+        .contact-item:hover { transform: translateY(-5px); }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .contact-item h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .contact-item span { color: #777; font-size: 0.9rem; display: block; margin-bottom: 0.5rem; }
+        
+        .contact-btn-social {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+        }
+        .contact-btn-social:hover { border-bottom: 1px solid var(--primary-color); }
+
+
+        /* --- 9. WHATSAPP FLUTUANTE --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20b857;
+        }
+
+
+        /* --- 10. FOOTER --- */
+        footer {
+            background-color: #f8f8f8;
+            color: #555; padding: 3rem 10%;
+            text-align: center; border-top: 1px solid #eee;
+        }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 1rem; display: block; color: var(--secondary-color); }
+        .copyright { font-size: 0.8rem; color: #aaa; margin-top: 1rem; }
+
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 768px) {
+            /* Cabeçalho no Mobile */
+            header { padding: 0 1rem; }
+            .nav-links { 
+                display: none; /* Em produção, substituir por menu hamburguer */
+            }
+            
+            .hero-container { height: calc(100vh - var(--header-height)); }
+            .conteudo-frente { margin-bottom: 40px; }
+            .logo-principal { width: 80%; }
+            
+            .about-container { grid-template-columns: 1fr; }
+            .about-image { order: -1; } /* Imagem acima do texto */
+            
+            section { padding: 4rem 1.5rem; }
+            
+            .partners-grid { grid-template-columns: 1fr; }
+            
+            .contact-links-container { 
+                flex-direction: column; 
+                gap: 2rem; 
+                align-items: center; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="logo-container">
+            <a href="#hero">
+                <img src="LOGOIANAVERMELHOOFC.png" alt="Logo Menu" class="nav-logo-img">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="#hero">Início</a>
+            <a href="#sobre">A Escola</a>
+            <a href="#parceiros">Núcleos</a>
+            <a href="#contato">Contatos</a>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-container">
+        
+        <img src="IMG_3498.jpg" alt="Fundo" class="imagem-fundo-src">
+        <div class="filtro-escuro"></div>
+
+        <div class="conteudo-frente">
+            <img src="LOGOIANAVERMELHOOFC.png" alt="Iana Leão Ballet" class="logo-principal">
+            <p>Formamos bailarinas e bailarinos com técnica, sensibilidade e amor pelas pessoas, pela dança e pelo processo
+                <h5>Balé Classico com cuidado, escuta, diciplina e leveza</h5>
+            </p>
+        </div>
+
+        <a href="#sobre" class="scroll-down">
+            <span class="arrow"></span>
+        </a>
+    </section>
+
+    <section id="sobre">
+        <div class="about-container">
+            <div class="about-text">
+                <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Nossa História</h2>
+                <h3>Tradição e Modernidade</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+            </div>
+            <div class="about-image">
+                <img src="IMG_3473.jpg" alt="Bailarina">
+            </div>
+        </div>
+    </section>
+
+    <section id="valores" style="background-color: #fdfdfd;">
+        <h2 class="section-title">Nosso Propósito</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h4>Excelência Técnica</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Foco na precisão e saúde do movimento.</p>
+            </div>
+            <div class="value-card">
+                <h4>Expressão Artística</h4>
+                <p>Vestibulum ante ipsum primis in faucibus orci luctus. A arte como forma de comunicação.</p>
+            </div>
+            <div class="value-card">
+                <h4>Desenvolvimento Humano</h4>
+                <p>Curabitur arcu erat, accumsan id imperdiet et. Disciplina, respeito e trabalho em equipe.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="parceiros">
+        <h2 class="section-title">Nossos Núcleos</h2>
+        <div class="partners-grid">
+            
+            
+            <div class="partner-card">
+                <div class="partner-img-box">
+                    <img src="Escola4.png" alt="Maf">
+                </div>
+                <h3 class="partner-name">MAF</h3>
+                <a href="#" class="btn-horarios">Horários e Turmas</a>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-img-box">
+                    <img src="Escola2.png" alt="Universitário">
+                </div>
+                <h3 class="partner-name">Universitário</h3>
+                <a href="#" class="btn-horarios">Horários e Turmas</a>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-img-box">
+                    <img src="Escola3.png" alt="Maxi">
+                </div>
+                <h3 class="partner-name">Maxi</h3>
+                <a href="#" class="btn-horarios">Horários e Turmas</a>
+            </div>
+
+            <div class="partner-card">
+                <div class="partner-img-box">
+                    <img src="Escola1.png" alt="MapleBear">
+                </div>
+                <h3 class="partner-name">Maple Bear</h3>
+                <a href="#" class="btn-horarios">Horários e Turmas</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato" style="background-color: #fcfcfc;">
+        <h2 class="section-title">Fale Conosco</h2>
+        
+        <div class="contact-links-container">
+            
+            <div class="contact-item">
+                <a href="https://wa.me/SEUNUMERO" target="_blank">
+                    <i class="fab fa-whatsapp contact-icon" style="color: #25d366;"></i>
+                </a>
+                <h4>WhatsApp</h4>
+                <span>(00) 99999-9999</span>
+                <a href="https://wa.me/SEUNUMERO" class="contact-btn-social">Chamar</a>
+            </div>
+
+            <div class="contact-item">
+                <a href="https://instagram.com/SEUPERFIL" target="_blank">
+                    <i class="fab fa-instagram contact-icon" style="color: #C13584;"></i>
+                </a>
+                <h4>Instagram</h4>
+                <span>@ianaleaoballet</span>
+                <a href="https://instagram.com/ianaleaoballet" class="contact-btn-social">Seguir</a>
+            </div>
+
+            <div class="contact-item">
+                <a href="https://tiktok.com/@SEUPERFIL" target="_blank">
+                    <i class="fab fa-tiktok contact-icon" style="color: #000000;"></i>
+                </a>
+                <h4>TikTok</h4>
+                <span>@ianaleaoballet</span>
+                <a href="https://tiktok.com/@SEUPERFIL" class="contact-btn-social">Assistir</a>
+            </div>
+
+            <div class="contact-item">
+                <a href="https://facebook.com/SEUPERFIL" target="_blank">
+                    <i class="fab fa-facebook-f contact-icon" style="color: #1877F2;"></i>
+                </a>
+                <h4>Facebook</h4>
+                <span>/ianaleaoballet</span>
+                <a href="https://facebook.com/SEUPERFIL" class="contact-btn-social">Curtir</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon" style="color: #db4437;"></i>
+                <h4>Localização</h4>
+                <span>Endereço da Sede</span>
+                <a href="#" class="contact-btn-social">Ver Mapa</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo">Iana Leão Ballet</span>
+        <p class="copyright">&copy; 2026 Iana Leão Ballet. Todos os direitos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/SEUNUMERO" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
